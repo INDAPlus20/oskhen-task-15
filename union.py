@@ -1,18 +1,12 @@
 #!/usr/bin/env python3
 
+count = 0
 while True:
     
     try:
         n, m = map(int, input().split(" "))
     except:
         exit()
-
-    commands = list()
-
-    for i in range(m):
-        commands.append(input().split(" "))
-
-    #print("\n\n")
 
     groups = dict()
     atoms = dict()
@@ -21,11 +15,9 @@ while True:
         groups[str(i+1)] = [i+1]
         atoms[str(i+1)] = str(i+1)
 
-
-
-    for operation in commands:
+    for i in range(m):
+        operation = input().split(" ")
         
-        #print(operation)
         command = int(operation[0])
 
         if command != 3:
@@ -59,12 +51,14 @@ while True:
 
                 if groups[setPKEY] == []:
                     groups.pop(setPKEY)
-            
-            # print(groups)
-            # print(atoms)
+
         else:
 
             atomP = operation[1]
             setPKEY = str(atoms[atomP])
 
             print(f"{len(groups[setPKEY])} {sum(groups[setPKEY])}")
+
+    # if count > 1:
+    #     x = 1/0
+    # count += 1
